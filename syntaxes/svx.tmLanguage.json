@@ -1,0 +1,33 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "SVX",
+  "patterns": [{ "include": "#svelte" }, { "include": "#markdown" }],
+  "repository": {
+    "svelte": {
+      "patterns": [{ "include": "#svelte-tag" }],
+      "repository": {
+        "svelte-tag": {
+          "patterns": [
+            {
+              "begin": "^(?=\\s*<[A-Za-z]\\w*)",
+              "end": "(?<=>)",
+              "contentName": "source.svelte",
+              "patterns": [{ "include": "source.svelte" }]
+            },
+            {
+              "begin": "(?=\\s*</[A-Za-z]\\w*)",
+              "end": "(?<=>)$",
+              "contentName": "source.svelte",
+              "patterns": [{ "include": "source.svelte" }]
+            }
+          ]
+        }
+      }
+    },
+    "markdown": {
+      "contentName": "text.html.markdown",
+      "patterns": [{ "include": "text.html.markdown" }]
+    }
+  },
+  "scopeName": "text.html.markdown.svelte"
+}
